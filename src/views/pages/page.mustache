@@ -1,0 +1,29 @@
+{{>partials/header}}
+{{! if banner }}
+{{#banner}} 
+<section class="banner" style="background-image: url('images/{{ imagem_bg }}')">{{titulo}}</section>
+<h2>{{titulo}} disponíveis para adoção</h2>
+{{/banner}}
+{{! FIM if banner }}
+
+<div class="container list">
+    {{! FAZ TIPO UM FOR DO ARRAY LISTA }}
+    {{ #lista }}
+        <div class="item">
+            {{! PRA IMPRIMIR O ITEM DO ARRAY SÓ PRECISO USAR O NOME DO ITEM }}
+            <img src="images/{{ image }}" class="item--image" />
+            <div class="item--name">Nome: {{ name }}</div>
+            <div class="item--color">Cor: {{ color }}</div>
+            <div class="item--genre">Sexo: {{ sex }}</div>
+        </div>
+    {{ /lista }}
+</div>
+
+{{! SÓ EXECUTA SE FOR FALSO }}
+{{^lista}}
+    <div class="container no-list">
+        <h2> SEM DADOS PARA EXIBIR</h2>
+    </div>
+{{/lista}}
+
+{{>partials/footer}}
